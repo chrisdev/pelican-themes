@@ -8,4 +8,4 @@ Customization is all done and documented in style.css.
 
 Screenshot below.
 
-![Screenshot](https://raw.github.com/mins/pelican-themes/master/chrisdev/Screenshot.png)
+![Screenshot](https://github.com/ilendl2/pelican-themes/blob/master/chrisdev_new/Screenshot.png)
