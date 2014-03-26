@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/foundation.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/foundation-icons.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/styles.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment.css">
+   
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    
+    <script src="{{ SITEURL }}/theme/js/vendor/modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+
+<div id="top" class="row hide-for-small" style="margin-top: 5px;">
+    <li style="float: right; text-align: right; font-size: 22px; color: #fff; padding-left: 15px; list-style: none;">
+        <i class="fi-social-facebook"></i>
+        <i class="fi-social-twitter"></i>
+        <i class="fi-social-linkedin"></i>
+        <i class="fi-social-youtube"></i>
+    </li>
+</div>
+
+<div id="menu" class="row hide-for-small">
+      <div class="large-4 columns"><h3>ChrisDev Blog</h3></div>
+      <div class="large-3 columns">&nbsp;</div>
+      <div style="margin-top: 10px;" class="large-5 columns">
+          <div class="large-4 columns"><h5><a href="/">Home</a></h5></div>
+          <div class="large-4 columns"><h5><a href="http://www.chrisdev.com/">About Us</a></h5></div>
+          <div class="large-4 columns"><h5><a href="http://www.chrisdev.com/contact_us/">Contact Us</a></h5></div>
+      </div>
+</div>
+
+<div class="contain-to-grid sticky show-for-small">
+	    <nav class="top-bar" data-topbar>
+	      	<ul class="title-area">	
+	        	<li class="names"><h3 style="color: #fff;">ChrisDev Blog</h3></li>
+	        	<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	        </ul>
+	        <section class="top-bar-section">
+	        	<ul class="right">
+			        <li><a href="/">Home</a></li>
+			        <li><a href="http://www.chrisdev.com/">About Us</a></li>
+			        <li><a href="http://www.chrisdev.com/contact_us/">Contact Us</a></li>
+	        	</ul>
+	        </section>
+	    </nav>
+</div>
+
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row" style="margin-top: 15px;">
+    
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        <div class="panel radius">
+            <h3>Welcome To ChrisDev Blog</h3>
+            <p>I am Christopher Clarke and I write about python.</p>
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="large-3 columns">
+        <div class="panel radius">
+            <ul class="side-nav">
+               
+                <label>Site</label>
+                <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+                <li><a href="{{ SITEURL }}/tags.html">Tags</a></li>
+                {% if FEED_RSS %}
+                    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate">Atom feed</a></li>
+                {% endif %}
+                {% if FEED_RSS %}
+                    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate">RSS feed</a></li>
+                {% endif %}
+                                
+                {% if categories %}
+                     <label>Categories</label>
+                        {% for cat, null in categories %}
+                            <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                        {% endfor %}
+                {% endif %}
+                                
+                {% if LINKS %}
+                     <label>Links</label>
+                        {% for name, link in LINKS %}
+                            <li><a href="{{ link }}">{{ name }}</a></li>
+                        {% endfor %}
+                {% endif %}  
+                                    
+                {% if SOCIAL %}
+                     <label>Social</label>
+                        {% for name, link in SOCIAL %}
+                            <li><a href="{{ link }}"><i class="fi-social-{{ name }}"></i>&nbsp;{{ name }}</a></li>
+                        {% endfor %}
+                {% endif %}
+                
+                <li class="divider"></li>
+                
+                <li><a href="/feed/all.atom.xml"><i class="fi-rss"></i>&nbsp; Subcribe to my feed</a></li>
+            </ul>
+        </div>
+        
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+  <div class="large-12 columns">
+    <hr />
+      <div class="row">
+        <div class="large-6 columns">
+            <h6><strong>Contact Us</strong></h6>                                             
+            <ul>                                                                             
+                <li>Phone (Cell):&nbsp;+(868)-773-4644</li>                              
+                <li>Phone (Office):&nbsp;+(868)-221-6277</li>                            
+                <li>Email:&nbsp;<a href="mailto:cclarke@chrisdev.com">cclarke at chrisdev.com</a>⇥  </li>
+            </ul>                                                                            
+        </div>
+        <div class="large-6 columns">
+            <h6><strong>Need a Website?</strong></h6> 
+            <p> If you need a website or a looking for a web based project fill out our
+                <a href="http://www.chrisdev.com/contact_us/client-project-form/">client project form</a>.
+            Remember you can always email  us or call us if you have questions or need more information,
+            </p>
+        </div>
+      </div>
+  </div>
+</div>
+</footer>
+
+<script src="{{ SITEURL }}/theme/js/vendor/jquery.js"></script>
+<script src="{{ SITEURL }}/theme/js/foundation.min.js"></script>
+<script>
+ $(document).foundation();
+</script>
+
+</body>
