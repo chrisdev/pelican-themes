@@ -1,16 +1,22 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title|striptags }}{% endblock %}
+
+{% block welcome %}{% endblock %}
 {% block content %}
 <article>
-    <header>
-        <h3 class="article-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-        title="Permalink to {{ article.title|striptags }}">{{ article.title}}</a></h3>
-        {% include 'twitter.html' %}
-    </header>
+    <h1 class="article-title">{{ article.title}}</h1>
+    <div class="info hide-for-small">
+        <ul class="small-block-grid-4">
+            <li><i class="fi-clock"></i>&nbsp;{{ article.locale_date }}</li>
+            <li><i class="fi-torso"></i>&nbsp;By&nbsp;<a href="{{ SITEURL }}{{ article.author.url }}"><strong>{{ article.author }}</strong></a></li>
+            <li><i class="fi-marker"></i>&nbsp;Category&nbsp;<a href="{{ SITEURL }}{{ article.category.url }}"><strong>{{ article.category }}</strong></a></li>
+            {% if article.tags %}
+            <li><i class="fi-marker"></i>&nbsp;Tagged&nbsp;<a href="{{ SITEURL }}"><strong></strong></a></li>
+            {% endif %}
+        </ul>
+    </div>
 
-    {% include 'article_infos.html' %}
     {{ article.content }}
-    {% include 'article_infos_bottom.html' %}
 
     {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
     <div id="disqus_thread"></div>
