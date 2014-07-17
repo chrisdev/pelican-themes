@@ -21,40 +21,41 @@
 
 <!-- Nav Bar -->
 
-<div id="top" class="row hide-for-small" style="margin-top: 5px;">
-    <li style="float: right; text-align: right; font-size: 22px; padding-left: 15px; list-style: none;">
-        <a href="#"><i class="fi-social-facebook"></i></a>
-        <a href="#"><i class="fi-social-twitter"></i></a>
-        <a href="#"><i class="fi-social-linkedin"></i></a>
-        <a href="#"><i class="fi-social-youtube"></i></a>
-    </li>
-</div>
-
-<div id="menu" class="row hide-for-small">
-      <div class="large-4 medium-4 columns"><img src="{{ SITEURL }}theme/images/chris_dev_topbar_logo.png" alt="" /></div>
-      <div class="large-3 hide-for-medium columns">&nbsp;</div>
-      <div style="margin-top: 10px;" class="large-5 medium-8 columns">
-          <div class="large-4 medium-4 columns"><h5><a href="/">Home</a></h5></div>
-          <div class="large-4 medium-4 columns"><h5><a href="http://www.chrisdev.com/">About Us</a></h5></div>
-          <div class="large-4 medium-4 columns"><h5><a href="http://www.chrisdev.com/contact_us/">Contact Us</a></h5></div>
-      </div>
-</div>
-
-<div class="contain-to-grid sticky show-for-small">
-	    <nav class="top-bar" data-topbar>
-	      	<ul class="title-area">	
-	        	<li class="names"><h3 style="color: #fff;">ChrisDev Blog</h3></li>
-	        	<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-	        </ul>
-	        <section class="top-bar-section">
-	        	<ul class="right">
-			        <li><a href="/">Home</a></li>
-			        <li><a href="http://www.chrisdev.com/">About Us</a></li>
-			        <li><a href="http://www.chrisdev.com/contact_us/">Contact Us</a></li>
-	        	</ul>
-	        </section>
-	    </nav>
-</div>
+<div id="header">
+    <div class="row hide-for-small">
+        <div class="social large-12 columns">
+            <li style="float: right; text-align: right; font-size: 22px; list-style: none;">
+                <a href="#"><i class="fi-social-facebook"></i></a>
+                <a href="#"><i class="fi-social-twitter"></i></a>
+                <a href="#"><i class="fi-social-linkedin"></i></a>
+                <a href="#"><i class="fi-social-youtube"></i></a>
+            </li>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-4 medium-4 hide-for-small columns">
+            <a href="/"><img src="{{ SITEURL }}theme/images/chris_dev_topbar_logo.png" alt="" /></a>
+        </div>
+        <div class="large-8 medium-8 small-12 columns">
+            <nav class="top-bar" data-topbar>
+              <ul class="title-area show-for-small">
+                <li class="name">
+                  <h1><a href="/">Chris Dev Blog</a></h1>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+              </ul>
+            
+              <section class="top-bar-section">
+                <ul class="right">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="http://www.chrisdev.com/about_us/">About Us</a></li>
+                  <li><a href="http://www.chrisdev.com/contact_us/">Contact Us</a></li>
+                </ul>
+              </section>
+            </nav>
+        </div>
+    </div>
+</div>      
 
 <!-- End Nav -->
 
@@ -64,11 +65,15 @@
     
 
     <!-- Main Blog Content -->
-    <div class="large-9 medium-9 columns">
-        <div class="panel radius">
-            <h3>Welcome To ChrisDev Blog</h3>
-            <p>I am Christopher Clarke and I write about python.</p>
-        </div>
+    <div id="main" class="large-9 medium-9 columns">
+        {% block welcome %}
+            <div id="welcome" class="large-8 medium-10 medium-centered large-centered columns">
+                <div class="panel radius">
+                    <h3>Welcome To ChrisDev Blog</h3>
+                    <p>I am Christopher Clarke and I write about python.</p>
+                </div>
+            </div>
+        {% endblock %}
         {% block content %}{% endblock %}
     </div>
     <!-- End Main Content -->
@@ -126,29 +131,25 @@
 
 
 <!-- Footer -->
-<footer class="row">
-  <div class="large-12 columns">
-    <hr />
-      <div class="row">
-        <div class="large-6 medium-6 columns">
-            <h6><strong>Contact Us</strong></h6>                                             
-            <ul>                                                                             
-                <li>Phone (Cell):&nbsp;+(868)-773-4644</li>                              
-                <li>Phone (Office):&nbsp;+(868)-221-6277</li>                            
-                <li>Email:&nbsp;<a href="mailto:cclarke@chrisdev.com">cclarke at chrisdev.com</a>⇥  </li>
-            </ul>                                                                            
-        </div>
-        <div class="large-6 medium-6 columns">
-            <h6><strong>Need a Website?</strong></h6> 
-            <p> If you need a website or a looking for a web based project fill out our
-                <a href="http://www.chrisdev.com/contact_us/client-project-form/">client project form</a>.
-            Remember you can always email  us or call us if you have questions or need more information,
-            </p>
-        </div>
-      </div>
-  </div>
+<div id="footer">
+    <footer class="row">
+            <div class="large-6 medium-6 columns">
+                <h6><strong>Contact Us</strong></h6>                                             
+                <ul>                                                                             
+                    <li>Phone (Cell):&nbsp;+(868)-773-4644</li>                              
+                    <li>Phone (Office):&nbsp;+(868)-221-6277</li>                            
+                    <li>Email:&nbsp;<a href="mailto:cclarke@chrisdev.com">cclarke at chrisdev.com</a>⇥  </li>
+                </ul>                                                                            
+            </div>
+            <div class="large-6 medium-6 columns">
+                <h6><strong>Need a Website?</strong></h6> 
+                <p> If you need a website or a looking for a web based project fill out our
+                    <a href="http://www.chrisdev.com/contact_us/client-project-form/">client project form</a>.
+                Remember you can always email  us or call us if you have questions or need more information,
+                </p>
+            </div>
+    </footer>
 </div>
-</footer>
 
 <script src="{{ SITEURL }}theme/js/vendor/jquery.js"></script>
 <script src="{{ SITEURL }}theme/js/foundation.min.js"></script>
